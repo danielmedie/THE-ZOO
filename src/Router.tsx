@@ -18,10 +18,6 @@ export const router = createBrowserRouter([
         path: "/animal/:id",
         element: <AnimalDetails/>,
       },
-      {
-        path: "/about",
-        // element: <About name={"Daniel Ek"} title={"Webbdeveloper"} description={"lorem ipsum"} imageUrl={""} />,
-      },
     ],
   },
 ]);

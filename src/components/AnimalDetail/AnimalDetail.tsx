@@ -8,7 +8,7 @@ import "./AnimalDetail.scss";
 export const AnimalDetails = () => {
   const [animal, setAnimal] = useState<IAnimal>();
   const [isFed, setIsFed] = useState(false);
-  const [buttonText, setButtonText] = useState('Mata djuret')
+  const [buttonText, setButtonText] = useState('Mata mig')
   const [isDisabled, setIsDisabled] = useState(false)
   const [fedTime, setFedTime] = useState("");
   const [shouldFeed, setShouldFeed] = useState(false);
@@ -57,17 +57,14 @@ export const AnimalDetails = () => {
   }
 
   const feedAnimal = async () => {
-    // Kontrollera om djuret har matats tidigare och tiden har sparas i localStorage
     const fedTimeStored = localStorage.getItem(`fedTime-${animal?.id}`);
     const now = new Date().getTime();
     if (fedTimeStored && now - parseInt(fedTimeStored) < 3 * 60 * 60 * 1000) {
-      // Djuret har matats för mindre än 3 timmar sedan, så kan inte mata igen
       setButtonText("Djuret matades nyligen");
       setIsDisabled(true);
       return;
     }
   
-    // Annars, mata djuret och spara tiden i localStorage
     const currentTime = new Date().toLocaleString();
     setFedTime(currentTime);
     setIsFed(true);
@@ -86,7 +83,6 @@ export const AnimalDetails = () => {
     localStorage.setItem(`fedTime-${animal?.id}`, now.toString());
   };
   
-
   return (
     <div className="animal__container">
       <h3 className="animal__container--name">{animal?.name}</h3>

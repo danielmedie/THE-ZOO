@@ -1,27 +1,7 @@
-.animal {
-  width: 50%;
+.animals {
   display: flex;
-  flex-direction: column;
   flex-wrap: wrap;
+  justify-content: space-evenly;
   align-items: center;
-  .animal--name {
-    
-  }
-  .animal__image-container{
-      width: 100%;
-    .animal__image{
-  width: 100%;
-    }      
-  }
-  .animal--description{
-
-  }
-  .animal--moreBtn{
-      justify-content: center;
-      width: 10%;
-      align-items: center;
-
-      background-color: red;
-  }
+  margin-top: 20px;
 }
-
